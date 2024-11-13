@@ -8,12 +8,13 @@ use Illuminate\View\Component;
 
 class SiteLayout extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public function __construct()
+    public $title;
+    public $valentine;
+
+    public function __construct(?string $title = null)
     {
-        //
+        $this -> title = ucfirst($title);
+        $this -> valentine = today()-> month == '02' && today()->day == '14' ;
     }
 
     /**
